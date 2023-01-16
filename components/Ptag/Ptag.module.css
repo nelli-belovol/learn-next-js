@@ -1,0 +1,20 @@
+.paragraph {
+  font-weight: 400;
+  margin: 0;
+  color: var(--black);
+}
+
+.small {
+  font-size: 14px;
+  line-height: 1.71;
+}
+
+.midium {
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.large {
+  font-size: 18px;
+  line-height: 1.61;
+}
