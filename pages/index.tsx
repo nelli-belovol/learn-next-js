@@ -1,44 +1,36 @@
 import { GetStaticProps } from "next";
-import { useEffect, useState } from "react";
-import { Htag, Button, Ptag, Tag, Rating } from "../components";
+import React, { useState } from "react";
+import { Button, Htag, Ptag, Rating, Tag } from "../components";
 import { withLayout } from "../layout/Layout";
 import axios from "axios";
 import { MenuItem } from "../interfaces/menu.interface";
 
-function Home({ menu, firstCategory }: HomeProps): JSX.Element {
-  const [counter, setCounter] = useState<number>(0);
+function Home({ menu }: HomeProps): JSX.Element {
   const [rating, setRating] = useState<number>(4);
 
   return (
     <>
-      <Htag tag='h1'>{counter}</Htag>
-      <Button appearance='primary' className='cool' onClick={() => setCounter(counter + 1)}>
+      <Htag tag='h1'>Заголовок</Htag>
+      <Button appearance='primary' arrow='right'>
         Кнопка
       </Button>
       <Button appearance='ghost' arrow='down'>
         Кнопка
       </Button>
-      <Ptag size='s'>KIjuvhsidvgu</Ptag>
-      <Ptag size='m'>KIjuvhsidvgu</Ptag>
-      <Ptag size='l'>KIjuvhsidvgu</Ptag>
+      <Ptag size='l'>Большой</Ptag>
+      <Ptag>Средний</Ptag>
+      <Ptag size='s'>Маленький</Ptag>
       <Tag size='s' color='ghost'>
-        kjush
+        Ghost
       </Tag>
       <Tag size='m' color='red'>
-        kjush
+        Red
       </Tag>
-      <Tag color='green'>kjush</Tag>
-      <Tag size='m' color='primary'>
-        kjush
+      <Tag size='s' color='green'>
+        Green
       </Tag>
-      <Rating rating={rating} />
+      <Tag color='primary'>Green</Tag>
       <Rating rating={rating} isEditable setRating={setRating} />
-      {/* <ul>
-        {" "}
-        {menu.map((el, idx) => (
-          <li key={idx}>{el._id.secondCategory}</li>
-        ))}
-      </ul> */}
     </>
   );
 }
@@ -47,13 +39,18 @@ export default withLayout(Home);
 
 export const getStaticProps: GetStaticProps<HomeProps> = async () => {
   const firstCategory = 0;
-
   const { data: menu } = await axios.post<MenuItem[]>(
     process.env.NEXT_PUBLIC_DOMAIN + "/api/top-page/find",
-    { firstCategory }
+    {
+      firstCategory,
+    }
   );
-
-  return { props: { menu, firstCategory } };
+  return {
+    props: {
+      menu,
+      firstCategory,
+    },
+  };
 };
 
 interface HomeProps extends Record<string, unknown> {
