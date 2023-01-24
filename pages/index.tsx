@@ -29,7 +29,7 @@ function Home({ menu }: HomeProps): JSX.Element {
       <Tag size='s' color='green'>
         Green
       </Tag>
-      <Tag color='primary'>Green</Tag>
+      <Tag color='primary'>Primary</Tag>
       <Rating rating={rating} isEditable setRating={setRating} />
     </>
   );
