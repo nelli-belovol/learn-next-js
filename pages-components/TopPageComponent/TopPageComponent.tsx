@@ -1,17 +1,27 @@
-import cn from "classnames";
-import React from "react";
-import { Htag, Tag, HhData, Advantages, Ptag } from "../../components";
+import React, { useReducer } from "react";
+import { Htag, Tag, HhData, Advantages, Ptag, Sort } from "../../components";
 import { TopPageComponentProps } from "./TopPageComponent.props";
 import styles from "./TopPageComponent.module.css";
 import { TopLevelCategory } from "../../interfaces/page.interface";
+import { SortEnum } from "../../components/Sort/Sort.props";
+import { sortReducer } from "./sort.reducer";
 
 export const TopPageComponent = ({
   products,
   page,
   firstCategory,
 }: TopPageComponentProps): JSX.Element => {
+  const [{ products: sortedProducts, sort }, dispatchSort] = useReducer(sortReducer, {
+    products,
+    sort: SortEnum.Rating,
+  });
+
+  const setSort = (sort: SortEnum) => {
+    dispatchSort({ type: sort });
+  };
+
   return (
-    <div className={styles.wrapper}>
+    <div>
       <div className={styles.title}>
         <Htag tag='h1'>{page.title}</Htag>
         {products && (
@@ -19,9 +29,9 @@ export const TopPageComponent = ({
             {products.length}
           </Tag>
         )}
-        <span>Сортировка</span>
+        <Sort sort={sort} setSort={setSort} />
       </div>
-      <div>{products && products.map((p) => <div key={p._id}>{p.title}</div>)}</div>
+      <div>{sortedProducts && sortedProducts.map((p) => <div key={p._id}>{p.title}</div>)}</div>
       <div className={styles.hhTitle}>
         <Htag tag='h2'>Вакансии - {page.category}</Htag>
         <Tag color='red' size='m'>
@@ -36,12 +46,14 @@ export const TopPageComponent = ({
           <Advantages advantages={page.advantages} />
         </>
       )}
-      {page.seoText && <Ptag size='l'>{page.seoText}</Ptag>}
+      {page.seoText && (
+        <div className={styles.seo} dangerouslySetInnerHTML={{ __html: page.seoText }} />
+      )}
 
       <Htag tag='h2' className={styles.titleSkills}>
         Получаемые навыки
       </Htag>
-      <div className={styles.skills}>
+      <div>
         {page.tags.map((t) => (
           <Tag color='primary' size='m' key={t}>
             {t}

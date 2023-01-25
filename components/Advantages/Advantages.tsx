@@ -4,7 +4,6 @@ import styles from "./Advantages.module.css";
 import CheckIcon from "./check.svg";
 import { Htag } from "../Htag/Htag";
 import { Ptag } from "../Ptag/Ptag";
-import { Tag } from "../Tag/Tag";
 
 export const Advantages = ({ advantages }: AdvantagesProps): JSX.Element => {
   return (
