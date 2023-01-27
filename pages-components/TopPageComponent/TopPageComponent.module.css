@@ -1,9 +1,10 @@
 .title {
   display: grid;
   grid-template-columns: auto 1fr auto;
-  align-items: baseline;
   justify-items: left;
   gap: 20px;
+  align-items: center;
+  margin-bottom: 20px;
 }
 
 .hhTitle {
@@ -43,4 +44,11 @@
   font-size: 20px;
   line-height: 27px;
   margin: 0;
+}
+
+@media screen and (max-width: 640px) {
+  .title {
+    grid-template-columns: auto 1fr;
+    margin-bottom: 30px;
+  }
 }
