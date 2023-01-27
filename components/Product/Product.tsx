@@ -60,7 +60,7 @@ export const Product = ({ product, className, ...props }: ProductProps): JSX.Ele
       <Divider className={styles.hr} />
       <div className={styles.actions}>
         <Button appearance='primary'>Узнать больше</Button>
-        <Button appearance='ghost' arrow={"right"}>
+        <Button className={styles.reviewButton} appearance='ghost' arrow={"right"}>
           Читать отзывы
         </Button>
       </div>
