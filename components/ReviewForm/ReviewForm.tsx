@@ -7,20 +7,40 @@ import { Textarea } from "../Textarea/Textarea";
 import { Button } from "../Button/Button";
 import { Input } from "../Input/Input";
 import CloseSvg from "./close.svg";
+import { useForm, SubmitHandler, Controller } from "react-hook-form";
+import { IReviewForm } from "./ReviewForm.interface";
 
 export const ReviewForm = ({ productId, className, ...props }: ReviewFormProps): JSX.Element => {
+  const { register, control, handleSubmit, reset } = useForm<IReviewForm>();
+
+  const onSubmit: SubmitHandler<IReviewForm> = (data: IReviewForm) => {
+    console.log(data);
+  };
+
   return (
-    <>
+    <form onSubmit={handleSubmit(onSubmit)}>
       <div className={cn(styles.reviewForm, className)} {...props}>
-        <Input placeholder='Имя' />
-        <Input placeholder='Заголовок отзыва' />
+        <Input {...register("name")} placeholder='Имя' />
+        <Input {...register("title")} placeholder='Заголовок отзыва' />
         <div className={styles.rating}>
           <span>Оценка</span>
-          <Rating rating={0} />
+          <Controller
+            control={control}
+            name='rating'
+            render={({ field }) => (
+              <Rating rating={field.value} ref={field.ref} isEditable setRating={field.onChange} />
+            )}
+          />
         </div>
-        <Textarea className={styles.description} placeholder='Текст отзыва' />
+        <Textarea
+          {...register("description")}
+          className={styles.description}
+          placeholder='Текст отзыва'
+        />
         <div className={styles.submit}>
-          <Button appearance='primary'>Отправить</Button>
+          <Button appearance='primary' type='submit'>
+            Отправить
+          </Button>
           <span>* Перед публикацией отзыв пройдет предварительную модерацию и проверку</span>
         </div>
       </div>
@@ -29,6 +49,6 @@ export const ReviewForm = ({ productId, className, ...props }: ReviewFormProps):
         <div>Спасибо, ваш отзыв будет опубликован после проверки.</div>
         <CloseSvg className={styles.close} />
       </div>
-    </>
+    </form>
   );
 };
