@@ -1,3 +1,7 @@
+.ratingWrapper {
+  position: relative;
+}
+
 .star svg {
   margin-right: 5px;
   fill: #e2e2e2;
@@ -17,4 +21,15 @@
 
 .star svg:focus-visible {
   outline: -webkit-focus-ring-color auto 5px;
+}
+
+.errorMessage {
+  position: absolute;
+  bottom: -20px;
+  left: 0;
+  color: var(--red);
+}
+
+.error svg {
+  stroke: var(--red);
 }

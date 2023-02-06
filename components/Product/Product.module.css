@@ -186,6 +186,10 @@
   .rateTitle {
     grid-area: rateTitle;
   }
+
+  .rateTitle a {
+    color: var(--primary);
+  }
   .hr {
     grid-area: hr;
   }
@@ -266,12 +270,12 @@
 }
 
 .closed {
+  display: none;
   overflow: hidden;
   max-width: 0;
   padding: 0;
 }
 
 .opened {
-  max-height: auto;
   padding: 30px;
 }
