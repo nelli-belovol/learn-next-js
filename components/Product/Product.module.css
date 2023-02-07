@@ -267,15 +267,6 @@
 }
 
 .reviews {
-}
-
-.closed {
-  display: none;
   overflow: hidden;
-  max-width: 0;
-  padding: 0;
-}
-
-.opened {
   padding: 30px;
 }
