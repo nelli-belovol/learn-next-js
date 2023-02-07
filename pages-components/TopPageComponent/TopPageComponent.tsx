@@ -5,6 +5,7 @@ import styles from "./TopPageComponent.module.css";
 import { TopLevelCategory } from "../../interfaces/page.interface";
 import { SortEnum } from "../../components/Sort/Sort.props";
 import { sortReducer } from "./sort.reducer";
+import { useScrollY } from "../../hooks/useScrollY";
 
 export const TopPageComponent = ({
   products,
@@ -15,7 +16,7 @@ export const TopPageComponent = ({
     products,
     sort: SortEnum.Rating,
   });
-
+  const y = useScrollY();
   const setSort = (sort: SortEnum) => {
     dispatchSort({ type: sort });
   };
