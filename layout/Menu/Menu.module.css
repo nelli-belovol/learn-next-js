@@ -40,6 +40,7 @@
   cursor: pointer;
   text-transform: uppercase;
   color: var(--grey-dark);
+  outline-offset: -1px;
 }
 
 .secondLevelBlock {
@@ -53,6 +54,7 @@
   line-height: 19px;
   margin-bottom: 10px;
   color: var(--grey-dark);
+  outline-offset: -1px;
 }
 
 .thirdLevelActive,

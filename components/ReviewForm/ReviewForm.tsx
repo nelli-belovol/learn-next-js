@@ -12,7 +12,12 @@ import { IReviewForm, IReviewSentResponse } from "./ReviewForm.interface";
 import axios from "axios";
 import { API } from "../../helpers/api";
 
-export const ReviewForm = ({ productId, className, ...props }: ReviewFormProps): JSX.Element => {
+export const ReviewForm = ({
+  isOpened,
+  productId,
+  className,
+  ...props
+}: ReviewFormProps): JSX.Element => {
   const {
     register,
     control,
@@ -44,11 +49,13 @@ export const ReviewForm = ({ productId, className, ...props }: ReviewFormProps):
     <form onSubmit={handleSubmit(onSubmit)}>
       <div className={cn(styles.reviewForm, className)} {...props}>
         <Input
+          tabIndex={isOpened ? 0 : -1}
           {...register("name", { required: { value: true, message: "Заполните имя" } })}
           placeholder='Имя'
           error={errors.name}
         />
         <Input
+          tabIndex={isOpened ? 0 : -1}
           {...register("title", { required: { value: true, message: "Заполните заголовок" } })}
           placeholder='Заголовок отзыва'
           error={errors.title}
@@ -71,6 +78,7 @@ export const ReviewForm = ({ productId, className, ...props }: ReviewFormProps):
           />
         </div>
         <Textarea
+          tabIndex={isOpened ? 0 : -1}
           {...register("description", {
             required: { value: true, message: "Заполните описание" },
           })}
@@ -79,7 +87,7 @@ export const ReviewForm = ({ productId, className, ...props }: ReviewFormProps):
           error={errors.description}
         />
         <div className={styles.submit}>
-          <Button appearance='primary' type='submit'>
+          <Button tabIndex={isOpened ? 0 : -1} appearance='primary' type='submit'>
             Отправить
           </Button>
           <span>* Перед публикацией отзыв пройдет предварительную модерацию и проверку</span>

@@ -4,12 +4,16 @@
   gap: 40px;
   align-self: center;
 }
-.sort span {
+.sort button {
   display: grid;
   grid-template-columns: 20px 1fr;
   gap: 8px;
   align-items: center;
   cursor: pointer;
+  border: none;
+  background: none;
+  font-size: 16px;
+  line-height: 22px;
 }
 
 .active {
@@ -25,6 +29,6 @@
   display: none;
 }
 
-.sort span:not(.active) {
+.sort button:not(.active) {
   grid-template-columns: 1fr;
 }
