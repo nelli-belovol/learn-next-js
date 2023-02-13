@@ -5,6 +5,7 @@ import styles from "./TopPageComponent.module.css";
 import { TopLevelCategory } from "../../interfaces/page.interface";
 import { SortEnum } from "../../components/Sort/Sort.props";
 import { sortReducer } from "./sort.reducer";
+import { useReducedMotion } from "framer-motion";
 
 export const TopPageComponent = ({
   products,
@@ -20,6 +21,8 @@ export const TopPageComponent = ({
     dispatchSort({ type: sort });
   };
 
+  const shouldReduceMotion = useReducedMotion();
+
   useEffect(() => {
     dispatchSort({ type: "reset", initialState: products });
   }, [products]);
@@ -29,14 +32,22 @@ export const TopPageComponent = ({
       <div className={styles.title}>
         <Htag tag='h1'>{page.title}</Htag>
         {products && (
-          <Tag color='grey' size='m'>
+          <Tag color='grey' size='m' aria-label={products.length + "элементов"}>
             {products.length}
           </Tag>
         )}
         <Sort sort={sort} setSort={setSort} />
       </div>
-      <div>
-        {sortedProducts && sortedProducts.map((p) => <Product layout key={p._id} product={p} />)}
+      <div role='list'>
+        {sortedProducts &&
+          sortedProducts.map((p) => (
+            <Product
+              role='item'
+              layout={shouldReduceMotion ? false : true}
+              key={p._id}
+              product={p}
+            />
+          ))}
       </div>
       <div className={styles.hhTitle}>
         <Htag tag='h2'>Вакансии - {page.category}</Htag>

@@ -41,6 +41,8 @@
   text-transform: uppercase;
   color: var(--grey-dark);
   outline-offset: -1px;
+  border: none;
+  background: none;
 }
 
 .secondLevelBlock {
