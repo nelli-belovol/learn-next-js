@@ -91,7 +91,7 @@ export const Menu = (): JSX.Element => {
                 onKeyDown={(key: KeyboardEvent) => openSecondLevelKey(key, m._id.secondCategory)}
                 className={styles.secondLevel}
                 onClick={() => openSecondLevel(m._id.secondCategory)}
-                aria-extended={m.isOpened}
+                aria-expanded={m.isOpened}
               >
                 {m._id.secondCategory}
               </button>
