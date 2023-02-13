@@ -1,38 +1,45 @@
 .sort {
-  display: grid;
-  grid-template-columns: auto auto;
-  gap: 40px;
-  align-self: center;
+	display: grid;
+	grid-template-columns: auto auto;
+	gap: 40px;
+
+	align-self: center;
 }
+
 .sort button {
-  display: grid;
-  grid-template-columns: 20px 1fr;
-  gap: 8px;
-  align-items: center;
-  cursor: pointer;
-  border: none;
-  background: none;
-  font-size: 16px;
-  line-height: 22px;
-}
+	display: grid;
+	grid-template-columns: 20px 1fr;
+	gap: 8px;
 
-.active {
-  font-weight: bold;
-  color: var(--primary);
-}
+	align-items: center;
 
-.active .sortIcon {
-  display: block;
+	cursor: pointer;
+
+	border: none;
+	background: none;
+
+	font-size: 16px;
+	line-height: 22px;
 }
 
 .sortIcon {
-  display: none;
+	display: none;
+}
+
+.active {
+	color: var(--primary);
+
+	font-weight: 700;
+}
+
+.active .sortIcon {
+	display: block;
 }
 
 .sort button:not(.active) {
-  grid-template-columns: 1fr;
+	grid-template-columns: 1fr;
 }
 
 .sortName {
-  display: none;
+	display: none;
 }

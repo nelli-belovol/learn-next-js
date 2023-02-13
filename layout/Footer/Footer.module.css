@@ -1,21 +1,24 @@
 .footerWrap {
-  display: grid;
-  grid-template-columns: 1fr auto auto;
-  gap: 40px;
-  background-color: var(--primary);
-  color: var(--white);
-  font-size: 16px;
-  line-height: 20px;
-  padding: 25px 30px;
+	display: grid;
+
+	padding: 25px 30px;
+
+	color: var(--white);
+	background-color: var(--primary);
+
+	font-size: 16px;
+	line-height: 20px;
+	grid-template-columns: 1fr auto auto;
+	gap: 40px;
 }
 
 .footerWrap a:hover {
-  color: var(--grey-light);
+	color: var(--grey-light);
 }
 
 @media (max-width: 765px) {
-  .footerWrap {
-    grid-template-columns: 1fr;
-    gap: 0 10px;
-  }
+	.footerWrap {
+		grid-template-columns: 1fr;
+		gap: 0 10px;
+	}
 }

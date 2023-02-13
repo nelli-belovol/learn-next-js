@@ -1,22 +1,25 @@
 .advantagesList {
-  margin: 30px 0;
+	margin: 30px 0;
 }
 
 .advantage {
-  display: grid;
-  grid-template-columns: 50px 1fr;
-  gap: 20px 40px;
-  margin-bottom: 30px;
+	display: grid;
+	grid-template-columns: 50px 1fr;
+	gap: 20px 40px;
+
+	margin-bottom: 30px;
 }
 
 .line {
-  border-left: 1px solid var(--grey-light);
+	border-left: 1px solid var(--grey-light);
 }
 
 .text {
-  margin-top: 10px;
+	margin-top: 10px;
 }
+
 .title {
-  font-weight: 700;
-  align-self: center;
+	align-self: center;
+
+	font-weight: 700;
 }

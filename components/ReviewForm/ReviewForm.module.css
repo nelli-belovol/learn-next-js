@@ -1,75 +1,80 @@
 .reviewForm {
-  font-size: 14px;
-  line-height: 24px;
+	display: grid;
+	align-items: center;
 
-  display: grid;
-  grid-template-columns: [start] auto 1fr auto [end];
-  align-items: center;
-  justify-items: left;
-  gap: 20px 30px;
+	font-size: 14px;
+	line-height: 24px;
+	grid-template-columns: [start] auto 1fr auto [end];
+	justify-items: left;
+	gap: 20px 30px;
 }
 
 .description,
 .submit {
-  width: 100%;
-  grid-column: start / end;
+	width: 100%;
+	grid-column: start / end;
 }
 
 .description {
-  height: 76px;
+	height: 76px;
 }
 
 .submit span {
-  margin-left: 15px;
+	margin-left: 15px;
 }
 
 .rating {
-  display: grid;
-  grid-template-columns: auto 1fr;
-  gap: 20px;
+	display: grid;
+	grid-template-columns: auto 1fr;
+	gap: 20px;
 }
 
 .panel {
-  padding: 20px;
-  position: relative;
-  border-radius: 5px;
-  margin-top: 20px;
+	position: relative;
+
+	margin-top: 20px;
+	padding: 20px;
+
+	border-radius: 5px;
 }
+
 .success {
-  background-color: var(--green-light);
+	background-color: var(--green-light);
 }
 
 .error {
-  background-color: var(--red-light);
+	background-color: var(--red-light);
 }
 
 .successTitle {
-  font-weight: bold;
+	font-weight: 700;
 }
 
 .close {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  border: none;
-  background: none;
+	position: absolute;
+	top: 10px;
+	right: 10px;
+
+	border: none;
+	background: none;
 }
 
 .error .close path {
-  stroke: var(--red);
+	stroke: var(--red);
 }
 
 @media screen and (max-width: 1200px) {
-  .reviewForm {
-    grid-template-columns: [start] 1fr 1fr [end];
-  }
-  .rating {
-    grid-column: start / end;
-  }
+	.reviewForm {
+		grid-template-columns: [start] 1fr 1fr [end];
+	}
+
+	.rating {
+		grid-column: start / end;
+	}
 }
 
 @media screen and (max-width: 930px) {
-  .reviewForm {
-    grid-template-columns: [start] 1fr [end];
-  }
+	.reviewForm {
+		grid-template-columns: [start] 1fr [end];
+	}
 }

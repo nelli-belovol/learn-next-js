@@ -3,6 +3,21 @@
   "plugins": ["stylelint-order"],
   "rules": {
     "indentation": ["tab"],
-    "color-hex-case": "upper"
+    "color-hex-case": "upper",
+    "selector-class-pattern": null,
+    "at-rule-empty-line-before": null,
+    "at-rule-no-unknown": null,
+    "comment-empty-line-before": null,
+    "font-weight-notation": null,
+    "max-line-length": null,
+    "no-descending-specificity": null,
+    "rule-empty-line-before": null,
+    "value-keyword-case": null,
+    "declaration-block-no-redundant-longhand-properties": [
+      true,
+      {
+        "ignoreShorthands": ["/grid/"]
+      }
+    ]
   }
 }

@@ -12,7 +12,7 @@ export const Review = ({ review, className, ...props }: ReviewProps): JSX.Elemen
 
   return (
     <div className={cn(styles.review, className)} {...props}>
-      <UserSvg className={styles.user} />
+      <UserSvg />
       <div className={styles.title}>
         <span className={styles.name}>{name}:</span>&nbsp;&nbsp;
         <span>{title}</span>

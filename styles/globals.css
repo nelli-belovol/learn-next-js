@@ -1,59 +1,66 @@
 html,
 body {
-  margin: 0;
-  padding: 0;
-  color: var(--black);
-  background: #f5f6f8;
-  font-family: "Noto Sans", sans-serif;
+	margin: 0;
+	padding: 0;
+
+	color: var(--black);
+	background: #F5F6F8;
+
+	font-family: "Noto Sans", sans-serif;
 }
 
 ul {
-  list-style: none;
-  margin: 0;
-  padding: 0;
+	margin: 0;
+	padding: 0;
+
+	list-style: none;
 }
 
 a {
-  text-decoration: none;
+	text-decoration: none;
 
-  color: inherit;
+	color: inherit;
 }
 
 img {
-  display: block;
+	display: block;
 }
+
 * {
-  box-sizing: border-box;
+	box-sizing: border-box;
 }
 
 .visualyHidden {
-  width: 0;
-  height: 0;
-  overflow: hidden;
-  position: absolute;
-}
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
-  }
+	position: absolute;
 
-  body {
-    color: white;
-    background: black;
-  }
+	overflow: hidden;
+
+	width: 0;
+	height: 0;
+}
+
+@media (prefers-color-scheme: dark) {
+	html {
+		color-scheme: dark;
+	}
+
+	body {
+		color: white;
+		background: black;
+	}
 }
 
 :root {
-  --black: #3b434e;
-  --grey-light: #ebebeb;
-  --grey-dark: #6c7077;
-  --grey: #a4a4a4;
-  --white: #ffffff;
-  --primary: #7351f5;
-  --primary-hover: #6344df;
-  --red-light: #f9d4ce;
-  --red: #fc836d;
-  --green: #007b48;
-  --green-light: #c8f8e4;
-  --font-family: "Noto Sans", sans-serif;
+	--black: #3B434E;
+	--grey-light: #EBEBEB;
+	--grey-dark: #6C7077;
+	--grey: #A4A4A4;
+	--white: #FFF;
+	--primary: #7351F5;
+	--primary-hover: #6344DF;
+	--red-light: #F9D4CE;
+	--red: #FC836D;
+	--green: #007B48;
+	--green-light: #C8F8E4;
+	--font-family: "Noto Sans", sans-serif;
 }

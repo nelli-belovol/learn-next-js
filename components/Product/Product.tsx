@@ -95,7 +95,7 @@ export const Product = motion(
                 <div className={styles.characteristics} key={ch.name}>
                   <span className={styles.characteristicsName}>{ch.name}</span>
                   <span className={styles.characteristicsDots}></span>
-                  <span className={styles.characteristicsValue}>{ch.value}</span>
+                  <span>{ch.value}</span>
                 </div>
               ))}
             </div>
