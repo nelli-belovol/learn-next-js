@@ -1,4 +1,4 @@
-import React, { KeyboardEvent } from "react";
+import React from "react";
 import { SortEnum, SortProps } from "./Sort.props";
 import styles from "./Sort.module.css";
 import SortIcon from "./sort.svg";
