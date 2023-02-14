@@ -15,7 +15,7 @@ jobs:
         uses: elgohr/Publish-Docker-Github-Action@v4
         with:
           registry: docker.pkg.github.com
-          name: docker.pkg.github.com/nelli-belovol/learn-next-js
+          name: docker.pkg.github.com/nelli-belovol/learn-next-js/learn-next-js
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
           tags: "develop"
