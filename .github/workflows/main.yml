@@ -10,9 +10,10 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@main
-      - name: Publish to Registry
-        uses: elgohr/Publish-Docker-Github-Action@v4
+      - name: Check out code
+        uses: actions/checkout@v2
+      - name: Push frontend image
+        uses: elgohr/Publish-Docker-Github-Action@2.14
         with:
           registry: docker.pkg.github.com
           name: docker.pkg.github.com/nelli-belovol/learn-next-js/learn-next-js
