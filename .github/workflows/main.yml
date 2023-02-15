@@ -13,10 +13,11 @@ jobs:
       - name: Check out code
         uses: actions/checkout@v2
       - name: Push frontend image
-        uses: elgohr/Publish-Docker-Github-Action@2.14
+        uses: elgohr/Publish-Docker-Github-Action@master
         with:
           registry: docker.pkg.github.com
           name: docker.pkg.github.com/nelli-belovol/learn-next-js/learn-next-js
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
+          dockerfile: Dockerfile
           tags: "develop"
