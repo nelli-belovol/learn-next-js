@@ -28,12 +28,18 @@ export const ReviewForm = ({
   } = useForm<IReviewForm>();
   const [isSuccess, setIsSuccess] = useState<boolean>(false);
   const [error, setError] = useState<string>();
-  const onSubmit: SubmitHandler<IReviewForm> = async (formData: IReviewForm) => {
+
+  const onSubmit: SubmitHandler<IReviewForm> = async (
+    formData: IReviewForm
+  ) => {
     try {
-      const { data } = await axios.post<IReviewSentResponse>(API.review.createDemo, {
-        ...formData,
-        productId,
-      });
+      const { data } = await axios.post<IReviewSentResponse>(
+        API.review.createDemo,
+        {
+          ...formData,
+          productId,
+        }
+      );
       if (data.message) {
         setIsSuccess(true);
         reset();
@@ -51,15 +57,19 @@ export const ReviewForm = ({
       <div className={cn(styles.reviewForm, className)} {...props}>
         <Input
           tabIndex={isOpened ? 0 : -1}
-          {...register("name", { required: { value: true, message: "Заполните имя" } })}
-          placeholder='Имя'
+          {...register("name", {
+            required: { value: true, message: "Заполните имя" },
+          })}
+          placeholder="Имя"
           error={errors.name}
           aria-invalid={errors.name ? true : false}
         />
         <Input
           tabIndex={isOpened ? 0 : -1}
-          {...register("title", { required: { value: true, message: "Заполните заголовок" } })}
-          placeholder='Заголовок отзыва'
+          {...register("title", {
+            required: { value: true, message: "Заполните заголовок" },
+          })}
+          placeholder="Заголовок отзыва"
           error={errors.title}
           aria-invalid={errors.title ? true : false}
         />
@@ -67,7 +77,7 @@ export const ReviewForm = ({
           <span>Оценка</span>
           <Controller
             control={control}
-            name='rating'
+            name="rating"
             rules={{ required: { value: true, message: "Поставьте оценку" } }}
             render={({ field }) => (
               <Rating
@@ -86,31 +96,34 @@ export const ReviewForm = ({
             required: { value: true, message: "Заполните описание" },
           })}
           className={styles.description}
-          placeholder='Текст отзыва'
+          placeholder="Текст отзыва"
           error={errors.description}
-          aria-label='Текст отзыва'
+          aria-label="Текст отзыва"
           aria-invalid={errors.description ? true : false}
         />
         <div className={styles.submit}>
           <Button
             tabIndex={isOpened ? 0 : -1}
-            appearance='primary'
-            type='submit'
+            appearance="primary"
+            type="submit"
             onClick={() => clearErrors()}
           >
             Отправить
           </Button>
-          <span>* Перед публикацией отзыв пройдет предварительную модерацию и проверку</span>
+          <span>
+            * Перед публикацией отзыв пройдет предварительную модерацию и
+            проверку
+          </span>
         </div>
       </div>
       {isSuccess && (
-        <div className={cn(styles.panel, styles.success)} role='alert'>
+        <div className={cn(styles.panel, styles.success)} role="alert">
           <div className={styles.successTitle}>Ваш отзыв отправлен!</div>
           <div>Спасибо, ваш отзыв будет опубликован после проверки.</div>
           <button
             className={styles.close}
             onClick={() => setIsSuccess(false)}
-            aria-label='закрыть оповещение'
+            aria-label="закрыть оповещение"
           >
             <CloseSvg />
           </button>
@@ -118,12 +131,12 @@ export const ReviewForm = ({
       )}
 
       {error && (
-        <div className={cn(styles.panel, styles.error)} role='alert'>
+        <div className={cn(styles.panel, styles.error)} role="alert">
           Что-то пошло не так, попробуйте обновить страницу
           <button
             className={styles.close}
             onClick={() => setError(undefined)}
-            aria-label='закрыть оповещение'
+            aria-label="закрыть оповещение"
           >
             <CloseSvg />
           </button>
